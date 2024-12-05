@@ -1,0 +1,115 @@
+.sidenav-container {
+    display: flex;
+    height: 100vh; /* Ensure the container fills the full height of the viewport */
+}
+
+.mat-sidenav {
+    width: 250px;
+    flex-shrink: 0; /* Prevent the sidenav from shrinking */
+}
+
+.mat-sidenav-container {
+    flex: 1; /* Ensure the container takes up the remaining space */
+    display: flex;
+    flex-direction: row;
+}
+
+.mat-sidenav-content {
+    flex: 1; /* Allow the content to fill the remaining space */
+    display: flex;
+    flex-direction: column;
+    
+    overflow-y: auto; /* Prevent content overflow from affecting the header */
+}
+
+.mat-toolbar {
+    position: sticky;
+    top: 0; /* Ensure it's stuck at the top */
+    z-index: 1000;
+    width: 100%;
+    background-color: #3f51b5;
+    margin: 0; /* Remove any margin */
+    padding: 0; /* Remove any padding */
+    
+}
+.spacer {
+    flex: 1; /* Push the notification icon to the right */
+    
+  }
+  /* Adjust the position of the badge closer to the icon */
+.mat-icon-button {
+    position: relative;
+  }
+  
+  #mat-badge {
+    top: -5px;  /* Adjust this to move the badge closer to the icon */
+    right: -5px; /* Adjust this to move the badge closer to the icon */
+    font-size: 12px; /* Optional: to reduce the badge size */
+  }
+
+  
+  ::ng-deep.mat-badge-medium.mat-badge-overlap .mat-badge-content {
+    margin: var(--mat-badge-container-overlap-offset);
+    position: relative;
+    left: -1px;
+}
+.menu-button {
+    margin-right: 16px;
+}
+.custom-badge{
+    left: -30px;
+}
+
+.content {
+    flex: 1; /* Make the content take up the remaining space in the layout */
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin-top: 34px; /* Adjust the margin to push content below the toolbar */
+    overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+    .mat-sidenav {
+        width: 200px; /* Adjust the width of sidenav for smaller screens */
+    }
+
+    .mat-sidenav-container {
+        flex-direction: column; /* Adjust layout for mobile view */
+    }
+
+    .mat-sidenav[mode="side"] {
+        display: none; /* Hide sidenav in side mode */
+    }
+
+    .mat-sidenav[mode="over"] {
+        display: block; /* Display sidenav in over mode for smaller screens */
+    }
+
+    .mat-toolbar {
+        position: relative; /* Allow the header to adjust position on mobile */
+    }
+
+    .content {
+        margin-top: 56px; /* Adjust the content margin for mobile view */
+    }
+}
+.no-requests {
+    padding: 8px;
+    text-align: center;
+    font-style: italic;
+    color: gray;
+  }
+  
+  mat-menu button.mat-menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  mat-menu button.mat-menu-item p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: gray;
+  }
+  

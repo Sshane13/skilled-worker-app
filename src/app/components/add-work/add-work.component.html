@@ -1,0 +1,47 @@
+<mat-card class="futuristic-card">
+  <mat-card-title class="futuristic-title">Add Worker Profile</mat-card-title>
+  <form (ngSubmit)="submitProfile()" class="futuristic-form">
+    <mat-form-field appearance="outline" class="futuristic-field">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="worker.name" name="name" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="futuristic-field">
+      <mat-label>Location</mat-label>
+      <input matInput [(ngModel)]="worker.location" name="location" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="futuristic-field">
+      <mat-label>Availability</mat-label>
+      <input matInput [(ngModel)]="worker.availability" name="availability" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="futuristic-field">
+      <mat-label>Phone</mat-label>
+      <input matInput [(ngModel)]="worker.phone" name="phone" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="futuristic-field">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="worker.email" name="email" type="email" />
+    </mat-form-field>
+
+    
+    <mat-form-field appearance="outline" class="futuristic-field">
+      <mat-label>Google Maps Link</mat-label>
+      <input matInput [(ngModel)]="worker.mapsLink" name="mapsLink" type="url" placeholder="Enter Google Maps URL" />
+    </mat-form-field>
+   
+ 
+    <!-- Image Upload -->
+   <div class="futuristic-field">
+      <mat-label>Profile Image</mat-label>
+      <input type="file" (change)="onImageSelected($event)" />
+   </div>
+
+
+
+    <!-- Submit Button -->
+    <button mat-raised-button color="primary" class="futuristic-button" type="submit">Submit</button>
+  </form>
+</mat-card>

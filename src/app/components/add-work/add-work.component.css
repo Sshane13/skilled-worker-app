@@ -1,0 +1,95 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    background: linear-gradient(135deg, #1e1e2f, #3a3a5f);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.futuristic-card {
+    background: rgba(255, 255, 255, 0.1); /* Transparent glass effect */
+    backdrop-filter: blur(15px); /* Frosted glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border for glassy look */
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37); /* Enhanced depth shadow */
+    padding: 30px;
+    width: 80%; /* Wide layout */
+    max-width: 900px; /* Restrict max width for larger screens */
+    box-sizing: border-box;
+    margin: 20px; /* Space for smaller viewports */
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.futuristic-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 20px;
+    text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5); /* Glow effect */
+}
+mat-form-field{
+    width: 100%;
+}
+.futuristic-form {
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* Increased spacing for better visual balance */
+}
+.futuristic-field mat-label {
+    color: black; /* Change label color to black */
+    font-weight: bold; /* Optional: Make the label text bold */
+}
+.futuristic-field {
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent field background */
+    backdrop-filter: blur(10px); /* Add glass effect to fields */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    color: white;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.futuristic-field mat-label {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.futuristic-field input {
+    color: rgb(0, 0, 0);
+    background: none; /* Transparent input background */
+}
+
+.futuristic-button {
+    background: linear-gradient(90deg, rgba(106, 17, 203, 0.7), rgba(37, 117, 252, 0.7));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-radius: 12px;
+    padding: 12px 20px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+
+.futuristic-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(106, 17, 203, 0.7);
+}
+
+@media (max-width: 768px) {
+    .futuristic-card {
+        width: 95%; /* Adjust width for smaller screens */
+        padding: 20px;
+    }
+
+    .futuristic-title {
+        font-size: 2rem;
+    }
+
+    .futuristic-form {
+        gap: 16px;
+    }
+}

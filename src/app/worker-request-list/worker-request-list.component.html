@@ -1,0 +1,19 @@
+<div class="request-list">
+    <h2>Pending Requests</h2>
+  
+    <ul>
+      <li *ngFor="let request of requests">
+        <div class="request-card">
+          <strong>{{ request.name }}</strong> has requested {{ request.service }} on {{ request.date }}.
+          <div class="status">
+            Status: <strong>{{ request.status }}</strong>
+          </div>
+          <div class="actions">
+            <button *ngIf="request.status === 'Pending'" (click)="onApprove(request.id)">Approve</button>
+            <button *ngIf="request.status === 'Pending'" (click)="onDecline(request.id)">Decline</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  

@@ -1,0 +1,38 @@
+<div *ngIf="worker" class="worker-card">
+  <mat-card class="futuristic-card">
+    <mat-card-header>
+      <div class="profile-header">
+        <img [src]="worker.profileImage" alt="Profile Image" class="profile-image" />
+        <div class="worker-details">
+          <h2 class="worker-name">{{ worker.name }}</h2>
+          <p class="worker-location"><mat-icon>place</mat-icon> {{ worker.location }}</p>
+          <p class="maps-link">
+            <a [href]="worker.mapsLink" target="_blank" *ngIf="worker.mapsLink">
+              View on Google Maps
+            </a>
+          </p>
+        </div>
+      </div>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <div class="worker-info">
+        <p><mat-icon>schedule</mat-icon> <span>Availability:</span> {{ worker.availability }}</p>
+        <p><mat-icon>phone</mat-icon> <span>Contact:</span> {{ worker.phone }}</p>
+        <p><mat-icon>email</mat-icon> <span>Email:</span> {{ worker.email }}</p>
+      </div>
+      
+    </mat-card-content>
+
+    <mat-card-actions align="end" class="worker-actions">
+      <button mat-raised-button color="primary">Edit Profile</button>
+      <button mat-raised-button color="accent">Message</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<ng-template #noWorker>
+  <div class="no-worker-card">
+    <p>No worker added yet.</p>
+  </div>
+</ng-template>

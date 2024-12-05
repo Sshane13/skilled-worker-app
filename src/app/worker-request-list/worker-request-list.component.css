@@ -1,0 +1,48 @@
+.request-list {
+    margin: 20px;
+  }
+  
+  .request-card {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .request-card strong {
+    font-size: 1.1rem;
+  }
+  
+  .status {
+    margin-top: 10px;
+  }
+  
+  .actions {
+    margin-top: 10px;
+  }
+  
+  button {
+    padding: 6px 12px;
+    margin-right: 5px;
+    cursor: pointer;
+    background-color: #4CAF50; /* Green for approve */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  button:active {
+    transform: scale(0.98);
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  

@@ -1,0 +1,15 @@
+<div class="transaction-container">
+    <h2>Transaction Status</h2>
+    <p><strong>Request ID:</strong> {{ requestDetails?.id }}</p>
+    <p><strong>Customer Name:</strong> {{ requestDetails?.userName }}</p>
+    <p><strong>Payment Status:</strong> {{ paymentStatus }}</p>
+  
+    <!-- Button to manually mark as paid -->
+    <button *ngIf="paymentStatus === 'Not Yet Paid'" (click)="markAsPaidManually()">
+      Mark as Paid Manually
+    </button>
+  
+    <!-- Show manual update message if the status is updated manually -->
+    <p *ngIf="manualStatus">Status updated: {{ manualStatus }}</p>
+  </div>
+  
