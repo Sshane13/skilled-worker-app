@@ -1,13 +1,51 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer mode="side" opened>
-    <mat-toolbar>Service Express</mat-toolbar>
+  <mat-sidenav #drawer mode="side" opened class="sidenav">
+    <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/add" routerLinkActive="active">Add Profile</a>
-      <a mat-list-item routerLink="/profile" routerLinkActive="active">My Profile</a>
-      <a mat-list-item routerLink="/bookings" routerLinkActive="active">Bookings</a>
-      <a mat-list-item routerLink="/request" routerLinkActive="active">Requests</a>
-      <a mat-list-item routerLink="/transaction" routerLinkActive="active">Transaction</a>
-      <a mat-list-item routerLink="/report-messages" routerLinkActive="active">Report</a>
+      <a mat-list-item routerLink="/add" routerLinkActive="active">
+        <div class="item-content">
+          <span>Profile</span>
+          <mat-icon class="right-icon1">person</mat-icon>
+        </div>
+      </a>
+      <a mat-list-item routerLink="/profile" routerLinkActive="active">
+        <div class="item-content">
+          <span>My Profile</span>
+          <mat-icon class="right-icon2">account_circle</mat-icon>
+        </div>
+      </a>
+      <a mat-list-item routerLink="/bookings" routerLinkActive="active">
+        <div class="item-content">
+          <span>Bookings</span>
+          <mat-icon class="right-icon3">book</mat-icon>
+        </div>
+      </a>
+      <a mat-list-item routerLink="/request" routerLinkActive="active">
+        <div class="item-content">
+          <span>Requests</span>
+          <mat-icon class="right-icon4">request_page</mat-icon>
+        </div>
+      </a>
+      <a mat-list-item routerLink="/transaction" routerLinkActive="active">
+        <div class="item-content">
+          <span>Transaction</span>
+          <mat-icon class="right-icon5">receipt</mat-icon>
+        </div>
+      </a>
+      <a mat-list-item routerLink="/report-messages" routerLinkActive="active">
+        <div class="item-content">
+          <span>Report</span>
+          <mat-icon class="right-icon6">report</mat-icon>
+        </div>
+      </a>
+      <!-- Logout button -->
+      <a mat-list-item (click)="logout()" class="logout-button">
+        <div class="item-content">
+          <span>Logout</span>
+          <mat-icon class="right-icon6">exit_to_app</mat-icon>
+        </div>
+      </a>
+     
     </mat-nav-list>
   </mat-sidenav>
 
@@ -16,21 +54,19 @@
       <button mat-icon-button (click)="toggleDrawer()" class="menu-button">
         <mat-icon>menu</mat-icon>
       </button>
-      <span>Worker Management</span>
+      <span class="margin">SERVICE EXPRESS Barangay Mabayuan</span>
       <span class="spacer"></span>
-      <!-- Notifications Button with Badge -->
       <button
-      mat-icon-button
-      class="custom-badge"
-      [matBadge]="unseenRequestsCount"
-      matBadgeColor="warn"
-      matBadgePosition="above after"
-      [matMenuTriggerFor]="notificationMenu"
-    >
-      <mat-icon>notifications</mat-icon>
-    </button>
+        mat-icon-button
+        class="custom-badge"
+        [matBadge]="unseenRequestsCount"
+        matBadgeColor="warn"
+        matBadgePosition="above after"
+        [matMenuTriggerFor]="notificationMenu"
+      >
+        <mat-icon>notifications</mat-icon>
+      </button>
 
-      <!-- Notification Dropdown -->
       <mat-menu #notificationMenu="matMenu">
         <ng-container *ngIf="unseenRequests.length > 0; else noNotifications">
           <button
@@ -44,7 +80,6 @@
             <small>{{ request.date }}</small>
           </button>
         </ng-container>
-        <!-- No Notifications Message -->
         <ng-template #noNotifications>
           <button mat-menu-item disabled>No new notifications</button>
         </ng-template>

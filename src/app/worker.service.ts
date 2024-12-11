@@ -1,41 +1,33 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-
-export interface Worker {
-  name: string;
-  location: string;
-
-  availability?: string;
-  phone?: string;
-  email?: string;
-  profileImage?: string;
-  works: any[];
-  mapsLink?: string
-}
+import { Observable } from 'rxjs';
+import { Worker } from './worker.model';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class WorkerService {
-  // Update the worker initialization to include the new properties
-  private worker = new BehaviorSubject<Worker>({
-    name: '',
-    location: '',
-    availability: '',
-    phone: '',
-    email: '',
-    profileImage: '', // Initialize profileImage
-    works: [], // Default empty works array
-    mapsLink: '',
-  });
+  private apiUrl = 'http://localhost/Service_express_api_sw'; // Update with your backend URL
 
-  worker$ = this.worker.asObservable();
+  constructor(private http: HttpClient) {}
 
-  updateWorker(updatedWorker: Worker) {
-    this.worker.next(updatedWorker); // Update the worker
+  addWorker(worker: Worker): Observable<any> {
+    return this.http.post(`${this.apiUrl}/createWorker.php`, worker);
   }
 
-  getWorker() {
-    return this.worker.value; // Get the current worker value
+  getWorkers(): Observable<Worker[]> {
+    return this.http.get<Worker[]>(`${this.apiUrl}/getWorkers.php`);
   }
+
+  updateWorker(worker: Worker): Observable<any> {
+    return this.http.put(`${this.apiUrl}/updateWorker.php`, worker);
+  }
+  // worker.service.ts
+  deleteWorkerProfile(workerId: string): Observable<any> {
+    const url = `${this.apiUrl}/delete_worker.php?id=${workerId}`; // Append workerId directly in the query string
+    return this.http.delete(url); // Make the DELETE request to the correct URL
+  }
+  
+
 }
+

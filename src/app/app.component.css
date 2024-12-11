@@ -1,8 +1,16 @@
 .sidenav-container {
     display: flex;
-    height: 100vh; /* Ensure the container fills the full height of the viewport */
+    height: 100vh; 
+    flex-direction: column;
+    background-color: #fafafa; /* Ensure the container fills the full height of the viewport */
 }
-
+.sidenav{
+    width: 250px;
+    background: linear-gradient(135deg, #A8D0E6, #F6F9FC); /* Light gradient */
+    height: 100%;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+   
+}
 .mat-sidenav {
     width: 250px;
     flex-shrink: 0; /* Prevent the sidenav from shrinking */
@@ -23,17 +31,22 @@
 }
 
 .mat-toolbar {
-    position: sticky;
-    top: 0; /* Ensure it's stuck at the top */
-    z-index: 1000;
-    width: 100%;
-    background-color: #3f51b5;
-    margin: 0; /* Remove any margin */
-    padding: 0; /* Remove any padding */
+    display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 16px;
+        background-color: #ffffff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: black;
     
 }
+.margin{
+    margin-left: 20px;
+}
 .spacer {
-    flex: 1; /* Push the notification icon to the right */
+    flex-grow: 1;
+    display: inline-block;/* Push the notification icon to the right */
     
   }
   /* Adjust the position of the badge closer to the icon */
@@ -42,6 +55,7 @@
   }
   
   #mat-badge {
+    
     top: -5px;  /* Adjust this to move the badge closer to the icon */
     right: -5px; /* Adjust this to move the badge closer to the icon */
     font-size: 12px; /* Optional: to reduce the badge size */
@@ -112,4 +126,102 @@
     font-size: 0.9rem;
     color: gray;
   }
+  ::ng-deep .mdc-list-item__content {
+    font-size: 16px;
+    font-weight: 100;
+    color: #4e4e4e;
+  width: 300px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 1px solid #e0e0e0; /* Light gray line between items */
+  }
   
+  ::ng-deep .mdc-list-item__content:hover {
+    background-color: #00796B; /* Teal background for hover */
+    width: 100%;
+    color: #ffffff; /* Text color turns white */
+    border-left: 4px solid #ffffff; /* White left border */
+    padding-left: 16px; /* Slight padding shift for effect */
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1); /* Inset shadow for depth */
+  
+  }
+  .right-icon1 {
+    position: relative;
+    top: 4px;
+    left: 124px;
+    width: 300px;
+   
+  }
+  .right-icon2 {
+    position: relative;
+    top: 4px;
+    left: 95px;
+    width: 300px;
+   
+  }
+  .right-icon3 {
+    position: relative;
+    top: 4px;
+    left: 102px;
+    width: 300px;
+   
+  }
+  .right-icon4 {
+    position: relative;
+    top: 4px;
+    left: 102px;
+    width: 300px;
+    
+  }
+  .right-icon5 {
+    position: relative;
+    top: 4px;
+    left: 82px;
+    width: 300px;
+   
+  }
+  .right-icon6 {
+    position: relative;
+    top: 4px;
+    left: 120px;
+    width: 400px;
+   
+  }
+  .right-icon6 {
+    position: relative;
+    top: 4px;
+    left: 120px;
+    width: 400px;
+
+  }
+  .right-icon8 {
+    position: relative;
+    top: 4px;
+    left: 108px;
+    width: 300px;
+  }
+  ::ng-deep .mdc-list-item__content {
+    font-size: 16px;
+    font-weight: 100;
+    color: #4e4e4e;
+  
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 1px solid #e0e0e0; /* Light gray line between items */
+  }
+  
+  ::ng-deep .mdc-list-item__content:hover {
+    background-color: #00796B; /* Teal background for hover */
+    width: 100%;
+    color: #ffffff; /* Text color turns white */
+    border-left: 4px solid #ffffff; /* White left border */
+    padding-left: 16px; /* Slight padding shift for effect */
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1); /* Inset shadow for depth */
+  
+  }

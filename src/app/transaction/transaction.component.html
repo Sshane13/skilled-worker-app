@@ -1,15 +1,31 @@
 <div class="transaction-container">
+  <!-- Header Section -->
+  <div class="transaction-header shadow">
     <h2>Transaction Status</h2>
-    <p><strong>Request ID:</strong> {{ requestDetails?.id }}</p>
-    <p><strong>Customer Name:</strong> {{ requestDetails?.userName }}</p>
-    <p><strong>Payment Status:</strong> {{ paymentStatus }}</p>
+  </div>
   
-    <!-- Button to manually mark as paid -->
+  <!-- Details Section: Grouped Request ID, Customer Name, and Payment Status -->
+  <div class="transaction-details-group shadow">
+   
+      <span><strong>Request ID:</strong> {{ requestDetails?.id }}</span>
+    
+   
+      <span><strong>Customer Name:</strong> {{ requestDetails?.userName }}</span>
+    
+   
+      <span><strong>Payment Status:</strong> {{ paymentStatus }}</span>
+    
+  </div>
+
+  <!-- Actions Section -->
+  <div class="transaction-actions shadow">
     <button *ngIf="paymentStatus === 'Not Yet Paid'" (click)="markAsPaidManually()">
       Mark as Paid Manually
     </button>
-  
-    <!-- Show manual update message if the status is updated manually -->
-    <p *ngIf="manualStatus">Status updated: {{ manualStatus }}</p>
   </div>
-  
+
+  <!-- Status Update Section -->
+  <div class="transaction-status-update shadow" *ngIf="manualStatus">
+    <p>Status updated: {{ manualStatus }}</p>
+  </div>
+</div>

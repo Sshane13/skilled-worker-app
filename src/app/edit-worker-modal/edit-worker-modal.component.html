@@ -1,0 +1,49 @@
+<h2 mat-dialog-title>Edit Worker Profile</h2>
+<mat-dialog-content>
+  <form #editWorkerForm="ngForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="worker.name" name="name" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Location</mat-label>
+      <input matInput [(ngModel)]="worker.location" name="location" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Phone</mat-label>
+      <input matInput [(ngModel)]="worker.phone" name="phone" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="worker.email" name="email" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Availability</mat-label>
+      <input matInput [(ngModel)]="worker.availability" name="availability" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Years of Experience</mat-label>
+      <input matInput [(ngModel)]="worker.experience" name="experience" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Work Done</mat-label>
+      <textarea matInput [(ngModel)]="worker.workDone" name="workDone"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Work Image URL</mat-label>
+      <input matInput [(ngModel)]="worker.workImage" name="workImage" />
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="closeDialog()">Cancel</button>
+  <button mat-button color="primary" (click)="saveChanges()">Save Changes</button>
+</mat-dialog-actions>

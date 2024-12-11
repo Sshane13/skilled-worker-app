@@ -11,6 +11,10 @@ export interface Worker {
   phone?: string;
   email?: string;
   profileImage?: string;
+  workImage?:string;
   mapsLink?: string;  // Add the Google Maps Link property
+  workDone?: string;
+  skills?:string;// New field for skills
+  experience?: number;
   works: Work[];  // Assuming works is an array of Work type
 }

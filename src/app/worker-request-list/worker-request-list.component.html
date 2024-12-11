@@ -1,19 +1,98 @@
 <div class="request-list">
-    <h2>Pending Requests</h2>
-  
-    <ul>
-      <li *ngFor="let request of requests">
-        <div class="request-card">
-          <strong>{{ request.name }}</strong> has requested {{ request.service }} on {{ request.date }}.
+  <h2 class="title">Pending Requests</h2>
+
+  <div class="request-items">
+    <div *ngFor="let request of requests" class="request-item">
+      <div class="request-card">
+        <div class="request-header">
+          <strong class="request-name">{{ request.name }}</strong>
+          <span class="request-service">requested {{ request.service }}</span>
+        </div>
+        <div class="request-details">
+          <p class="request-date">On: {{ request.date }}</p>
           <div class="status">
-            Status: <strong>{{ request.status }}</strong>
-          </div>
-          <div class="actions">
-            <button *ngIf="request.status === 'Pending'" (click)="onApprove(request.id)">Approve</button>
-            <button *ngIf="request.status === 'Pending'" (click)="onDecline(request.id)">Decline</button>
+            <span>Status: </span>
+            <strong class="status-text">{{ request.status }}</strong>
           </div>
         </div>
-      </li>
-    </ul>
+        <div class="request-actions">
+          <!-- Send Message Button for Skilled Worker -->
+          <button *ngIf="request.status === 'Pending'" class="message-btn" (click)="onMessage(request)">
+            Send Message
+          </button>
+
+          <!-- View Full Request Button -->
+          <button class="view-btn" (click)="openModal(request)">
+            View Full Request
+          </button>
+
+          
+          
+
+          <!-- Approve and Decline Buttons -->
+          <div *ngIf="request.status === 'Pending'">
+            <button class="approve-btn" (click)="onApprove(request.id)">
+              Approve
+            </button>
+            <button class="decline-btn" (click)="onDecline(request.id)">
+              Decline
+            </button>
+          </div>
+        </div>
+        <div *ngIf="selectedRequest" class="modal">
+          <div class="modal-content">
+            <h3>Full Request Details</h3>
+            <p><strong>Service:</strong> {{ selectedRequest.service }}</p>
+            <p><strong>Date:</strong> {{ selectedRequest.date }}</p>
+            <p><strong>Description:</strong> {{ selectedRequest.description }}</p>
+            <p><strong>Status:</strong> {{ selectedRequest.status }}</p>
+            <p><strong>Proposed Cost:</strong> {{ selectedRequest.proposedCost | currency }}</p>
+        
+            <!-- User's Uploaded Picture Preview Section -->
+            <h4>User's Uploaded Picture:</h4>
+            <div *ngIf="selectedRequest.userPicture">
+              <img [src]="selectedRequest.userPicture" alt="Uploaded Image" width="200" />
+            </div>
+        
+            <button class="close-btn" (click)="closeModal()">Close</button>
+          </div>
+        </div>
+        <!-- Message Modal for Proposing Cost -->
+        <div *ngIf="selectedRequest === request && request.showMessageModal" class="message-modal">
+          <div class="modal-content">
+            <h3>Propose Cost to {{ request.name }}</h3>
+            <label for="cost">Proposed Cost:</label>
+            <input 
+              type="number" 
+              id="cost" 
+              [(ngModel)]="request.proposedCost" 
+              placeholder="Enter cost" 
+            />
+            <p><strong>Proposed Cost:</strong> {{ request.proposedCost | currency }}</p>
+
+            <!-- Message from the Worker to the User -->
+            <label for="message">Message to User:</label>
+            <textarea 
+              id="message" 
+              [(ngModel)]="request.messageToUser" 
+              placeholder="Enter your message to the user"
+            ></textarea>
+
+            <!-- User's Uploaded Picture Preview Section -->
+            <h4>User's Uploaded Picture:</h4>
+            <div *ngIf="request.userPicture">
+              <img [src]="request.userPicture" alt="Uploaded Image" width="200" />
+            </div>
+
+            <!-- Send Message Button -->
+            <button class="send-btn" (click)="sendMessage(request)">Send Message</button>
+
+            <button class="close-btn" (click)="closeMessageModal()">Close</button>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  
+</div>
